@@ -15,7 +15,29 @@ class MyApp extends StatelessWidget{
   Widget build(BuildContext context) {
     return new MaterialApp(
       title: KString.mainTitle,
-      home:IndexPage(),
+      home:Scaffold(
+      appBar: AppBar(
+        // Here we take the value from the MyHomePage object that was created by
+        // the App.build method, and use it to set our appbar title.
+        title: Text(widget.title),
+      ),
+      body: Container(
+        height: ScreenUtil.instance.setHeight(800),
+        child: FlareActor(
+          "flrs/skill.flr",
+          alignment: Alignment.center,
+          isPaused: false,
+//          callback: (anim) {
+//            if (anim == "attack") {
+//              setState(() {
+//                _attack = false;
+//              });
+//            }
+//          },
+          animation: "end",
+        ),
+      ),
+    );
     );
   }
 }
